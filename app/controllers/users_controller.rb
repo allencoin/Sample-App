@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)		# Not final implementation
   	if @user.save
-  		# Handle a successful save
+      # redirects to user page, same as below:
+      # redirect_to user_url(@user)
+  		redirect_to @user
   	else
   		render 'new'
   	end
