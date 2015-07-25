@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       # redirects to user page, same as below:
       # redirect_to user_url(@user)
   		redirect_to @user
+      flash[:success] = "Welcome to Sample App!"
   	else
   		render 'new'
   	end
