@@ -16,6 +16,7 @@ $gray-medium-light: #EAEAEA;
 
 body {
     padding-top: 0px;
+    font-family: Verdana, sans-serif;
 }
 
 section {
@@ -42,13 +43,13 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1;
+    font-family: Georgia, serif;
 }
 
 h1 {
     font-size: 3em;
     margin-bottom: 30px;
     text-align: center;
-    letter-spacing: -1px;
 }
 
 h2 {
@@ -118,6 +119,14 @@ footer {
     @include box_sizing;
 }
 
+.jumbotron {
+    background: url("../assets/bg.jpg") no-repeat center center;
+    h1, h2 {
+        color: white;
+        text-shadow: 1px 1px 1px #333;
+    }
+}
+
 /* sidebar */
 
 aside {
@@ -154,3 +163,29 @@ aside {
     margin-top: 15px;
 }
 
+/* forms */
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box-sizing;
+}
+
+input {
+    height: auto !important;
+}
+
+#error_explanation {
+    ol {
+        color: black;
+        margin: 0 0 5px 0;
+    }
+}
+
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+}
