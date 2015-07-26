@@ -7,19 +7,19 @@
 		<%= form_for(@user) do |f| %>
 			<%= render 'shared/error_messages' %>
 			
-			<%= f.label :name %>
+			<%= f.label :name, "name" %>
 			<%= f.text_field :name, :placeholder => "First and last name" %>
 
-			<%= f.label :email, "E-mail" %>
-			<%= f.email_field :email, :placeholder => "user@example.com" %>
+			<%= f.label :email, "e-mail" %>
+			<%= f.email_field :email %>
 
-			<%= f.label :password %>
+			<%= f.label :password, "password" %>
 			<%= f.password_field :password, :placeholder => "6 characters or more" %>
 
-			<%= f.label :password_confirmation, "Confirm Password" %>
-			<%= f.password_field :password_confirmation, :placeholder => "Passwords must match" %>
+			<%= f.label :password_confirmation, "confirm password" %>
+			<%= f.password_field :password_confirmation %>
 
-			<%= f.submit "Create my account", class: "btn btn-primary" %>
+			<%= f.submit "Create my account!", class: "btn btn-primary" %>
 		<% end %>
 	</div>
 </div>
