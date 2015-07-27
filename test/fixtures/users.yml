@@ -1,1 +1,4 @@
-# this file intentionally left blank
+eleanor:
+	name: Eleanor Example
+	email: eleanor@example.com
+	password_digest: <%= User.digest('password') %>
