@@ -83,6 +83,25 @@ p {
     }
 }
 
+.avatar {
+    color: white;
+    font-size: .8em;
+    margin-top: 15px;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    .dropdown-menu {
+        margin-top: 20px;
+        margin-left: 35px;
+    }
+}
+
+.pic {
+    float: left;
+    max-height: 10px;
+}
+
 /* footer */
 
 footer {
