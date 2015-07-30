@@ -1,5 +1,5 @@
-<nav class="navbar navbar-inverse navbar-static-top" role = "navigation">
-    <div class="container"
+<header class="navbar navbar-inverse navbar-static-top" role = "navigation">
+    <div class="container">
     	<div class="nav navbar-nav navbar-header">
     		<%= link_to "Sample App", root_path, id: "logo" %>
 
@@ -18,12 +18,11 @@
             <% if logged_in? %>
             	<li><%= link_to "Users", '#' %></li>
                 <li class="dropdown">
-                    <% if logged_in? %>
-            <div class="container pull-right avatar">
-            <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <%= current_user.name %>
-                        <%= tiny_gravatar_for(current_user) %>
+                        <div class="pic">
+                            <%= image_tag tiny_gravatar_for(current_user) %>
+                        </div>
+                    <%= current_user.name %>
                     </a>
                     <ul class="dropdown-menu">
                         <li><%= link_to "Profile", current_user %></li>
@@ -34,13 +33,10 @@
                         </li>
                     </ul>
                 </li>
-             </div>
-             <% end %>
-
             <% else %>
             	<li><%= link_to "Log in", login_path %></li>
             <% end %>
         </ul>
     	</div>
     </div>
-</nav>
+</header>
