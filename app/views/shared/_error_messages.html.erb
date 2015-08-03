@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
 	<div id = "error_explanation">
 		<div class="alert alert-danger">
-			<p>Your registration attempt has <strong><%= pluralize(@user.errors.count, "problem") %></strong>:</p>
+			<p>We found <strong><%= pluralize(@user.errors.count, "problem") %></strong> with your form submission:</p>
 			<ol>
 				<% @user.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
