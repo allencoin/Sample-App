@@ -1,4 +1,12 @@
 <% provide(:title, "Edit user") %>
+<script>
+$(document).ready(function(){
+    $('#what').click(function(){
+        $('#gravatar-explanation').slideToggle('fast');
+        return false;
+    });
+});
+</script>
 <h1>Edit Your Profile</h1>
 
 <div class="row">
@@ -17,10 +25,15 @@
 
 			<%= f.submit "Save changes", class: "btn btn-primary" %>
 		<% end %>
-
+		<br />
 		<div class="gravatar_edit">
 			<%= gravatar_for @user %>
-			<a href="http://gravatar.com/emails" target="_blank">change</a>
+			<a href="http://gravatar.com/emails" target="_blank"><strong>Change picture</strong></a><br />
+			<a href="#" id = "what"><small>What is this?</small></a>
+			<br />
+			<div id="gravatar-explanation">
+				<small>We use Gravatars on this site. A Gravatar is a <em>100% free</em>, <strong>G</strong>lobally <strong>R</strong>ecognized <strong>A</strong>vatar. You upload it and create your profile just once, and then when you participate in any Gravatar-enabled site (including this one), your Gravatar image will automatically follow you there. <a href="http://gravatar.com/emails" target="_blank">Click here</a> to learn more.</small>
+			</div>
 		</div>
 		<br />
 	</div>
