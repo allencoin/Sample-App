@@ -39,6 +39,10 @@ textarea {
     clear: all;
 }
 
+a {
+    text-decoration-skip: ink;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -141,11 +145,14 @@ footer {
 }
 
 .jumbotron {
-    background: url("../assets/bg.jpg") no-repeat center center;
+    background: url("../assets/jumbo-bg.jpg") no-repeat center center;
     h1, h2 {
         color: white;
         text-shadow: 1px 1px 1px #333;
     }
+    h2 a {
+        color: white;
+        }
 }
 
 #gravatar-explanation {
