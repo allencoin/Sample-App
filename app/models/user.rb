@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	validates(:name,  presence: true, length: { maximum: 50 } )
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates(:email, presence: true, length: { maximum: 255 },
-					  format: {with: VALID_EMAIL_REGEX }, 
+					  format: {with: VALID_EMAIL_REGEX },
 					  uniqueness: { case_sensitive: false } )
 	has_secure_password
 	validates(:password, presence: true, length: { minimum: 6 }, allow_nil: true)
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 	  def new_token
 	  	SecureRandom.urlsafe_base64
 	  end
-	  
+
 	end
 
 	# Remember user in database.
@@ -72,6 +72,11 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  # Defines a proto-feed
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
 	private
 
 		# Converts email to all lower-case.
@@ -79,10 +84,10 @@ class User < ActiveRecord::Base
 			self.email = email.downcase
 		end
 
-		# Creates and assigns the activation token and digest. 
+		# Creates and assigns the activation token and digest.
 		def create_activation_digest
 			self.activation_token = User.new_token
 			self.activation_digest = User.digest(activation_token)
 		end
-	
+
 end
