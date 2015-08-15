@@ -1,9 +1,9 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
 	<div id = "error_explanation">
 		<div class="alert alert-danger">
-			<p>We found <strong><%= pluralize(@user.errors.count, "problem") %></strong> with your form submission:</p>
+			<p>You encountered <strong><%= pluralize(object.errors.count, "problem") %></strong>:</p>
 			<ol>
-				<% @user.errors.full_messages.each do |msg| %>
+				<% object.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
 				<% end %>
 			</ol>
