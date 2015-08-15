@@ -1,5 +1,5 @@
-apple:
-  content: "I just ate an apple."
+orange:
+  content: "I just ate an orange."
   created_at: <%= 10.minutes.ago %>
   user: eleanor
 
@@ -24,4 +24,4 @@ micropost_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: eleanor
 <% end %>
-  
+
