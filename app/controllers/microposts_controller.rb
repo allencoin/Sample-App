@@ -22,10 +22,10 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content, :picture)
     end
 
-    # How can this be made to allow admins to delete any micropost?
+    # How can we allow admins to delete any micropost?
     def correct_user
       @micropost = current_user.microposts.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
