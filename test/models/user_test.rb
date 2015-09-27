@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  
+
   def setup
   	@user = User.new(name: "Example User", email: "user@example.com",
   					password: "foobar", password_confirmation: "foobar")
@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
   	assert_not @user.valid?
   end
 
-  test "email should be present" do 
+  test "email should be present" do
   	@user.email = ""
   	assert_not @user.valid?
   end
@@ -40,7 +40,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "email validation should reject invalid addresses" do 
+  test "email validation should reject invalid addresses" do
   	invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
   						foo@bar_baz.com foo@bar+baz.com]
   	invalid_addresses.each do |invalid_address|
@@ -83,6 +83,17 @@ class UserTest < ActiveSupport::TestCase
     assert_difference 'Micropost.count', -1 do
       @user.destroy
     end
+  end
+
+  test "should follow and unfollow a user" do
+    eleanor  = users(:eleanor)
+    archer   = users(:archer)
+    assert_not eleanor.following?(archer)
+    eleanor.follow(archer)
+    assert eleanor.following?(archer)
+    assert archer.followers.include?(eleanor)
+    eleanor.unfollow(archer)
+    assert_not eleanor.following?(archer)
   end
 
 end
