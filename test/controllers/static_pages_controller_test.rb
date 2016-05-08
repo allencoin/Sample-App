@@ -1,15 +1,15 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
-	
+
   def setup
-  	@base_title = "| Sample App"
+  	@base_title = "| Flittr"
   end
 
   test "should get home" do
     get :home
     assert_response :success
-    assert_select "title", "Sample App"
+    assert_select "title", "Flittr"
   end
 
   test "should get help" do
